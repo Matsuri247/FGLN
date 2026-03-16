@@ -14,7 +14,7 @@ torchinfo
 ```
 
 # Data Preparation
-Dataset downloading: [ARAD](), [CAVE]()  
+Dataset downloads: [ARAD](), [CAVE]()  
 
 Make sure you place the dataset as the following form:
 ```
