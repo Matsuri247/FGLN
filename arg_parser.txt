@@ -1,0 +1,12 @@
+【train_experiment_frequency1.py】
+# ARAD dataset training
+--method FGLN --msfa_size 4 --dataset ARAD --batch_size 10 --end_epoch 1000 --init_lr 4e-4 --lr_step 100000 --outf ./train_exp/FGLN/ --train_dir ./dataset/ARAD/train/ --test_dir /home/lab206/mycode/demosaicing_MPEFormer/dataset/ARAD/test/ --cache ./training_cache/
+# CAVE dataset training
+--method FGLN --msfa_size 4 --dataset CAVE --batch_size 20 --end_epoch 1000 --init_lr 4e-4 --lr_step 100000 --outf ./train_exp/FGLN/ --train_dir ./dataset/CAVE/train/ --test_dir /home/lab206/mycode/demosaicing_MPEFormer/dataset/CAVE/test/ --cache ./training_cache/
+
+【test_experiment.py】
+# ARAD dataset testing
+--method FGLN --msfa_size 4 --dataset ARAD --pretrained_model_path ./model_zoo/FGLN/ARAD/net_1000epoch.pth --test_dir ./dataset/ARAD/test/ --outf ./test_exp/FGLN/ --cache ./training_cache/
+# CAVE dataset tesing
+--method FGLN --msfa_size 4 --dataset CAVE --pretrained_model_path ./model_zoo/FGLN/CAVE/net_1000epoch.pth --test_dir ./dataset/CAVE/test/ --outf ./test_exp/FGLN/ --cache ./training_cache/
+
