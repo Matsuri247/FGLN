@@ -1,4 +1,4 @@
-## FGLN
+# FGLN
 The code implementation of paper "Frequency-Guided Lightweight Network for Unsupervised Spectral Demosaicing".
 
 # Environment Setup Overview
