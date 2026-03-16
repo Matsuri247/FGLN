@@ -14,7 +14,8 @@ torchinfo
 ```
 
 # Data Preparation
-You can find ARAD dataset and Chikusei dataset from ([here](https://github.com/bowenzhao-zju/PPIE-SSARN)). Make sure you place the dataset as the following form:
+Dataset downloading: [ARAD](), [CAVE]()
+Make sure you place the dataset as the following form:
 ```
 |--demosaicing_MPEFormer
     |--dataset 
@@ -29,44 +30,41 @@ You can find ARAD dataset and Chikusei dataset from ([here](https://github.com/b
                 |--ARAD_1K_0902_16.mat
                 ： 
                 |--ARAD_1K_0950_16.mat
-        |--Chikusei
+        |--CAVE
             |--train
-                |--001_16.mat
-                |--002_16.mat
+                |--xxx.mat
+                |--xxx.mat
                 ： 
-                |--090_16.mat
+                |--xxx.mat
             |--test
-                |--091_16.mat
-                |--092_16.mat
+                |--xxx.mat
+                |--xxx.mat
                 ： 
-                |--100_16.mat
+                |--xxx.mat
 ```
 
+
 # Train
-【train_experiment.py】
+【train_experiment_frequency1.py】
 ```
---method MPEFormer --msfa_size 4 --dataset ARAD --batch_size 16 --end_epoch 4000 --init_lr 4e-4 --outf ./train_exp/MPEFormer/ --train_dir ./dataset/ARAD/train/ --test_dir ./dataset/ARAD/test/
---method MPEFormer --msfa_size 4 --dataset Chikusei --batch_size 16 --end_epoch 4000 --init_lr 4e-4 --outf ./train_exp/MPEFormer/ --train_dir ./dataset/Chikusei/train/ --test_dir ./dataset/Chikusei/test/
+# ARAD dataset training
+--method FGLN --msfa_size 4 --dataset ARAD --batch_size 10 --end_epoch 1000 --init_lr 4e-4 --lr_step 100000 --outf ./train_exp/FGLN/ --train_dir ./dataset/ARAD/train/ --test_dir /home/lab206/mycode/demosaicing_MPEFormer/dataset/ARAD/test/ --cache ./training_cache/
+# CAVE dataset training
+--method FGLN --msfa_size 4 --dataset CAVE --batch_size 20 --end_epoch 1000 --init_lr 4e-4 --lr_step 100000 --outf ./train_exp/FGLN/ --train_dir ./dataset/CAVE/train/ --test_dir /home/lab206/mycode/demosaicing_MPEFormer/dataset/CAVE/test/ --cache ./training_cache/
 ```
 
 # Test
 【test_experiment.py】
 ```
---method MPEFormer --msfa_size 4 --dataset ARAD --pretrained_model_path ./model_pth/MPEFormer/ARAD/MPEFormer_ARAD.pth --test_dir ./dataset/ARAD/test/ --outf ./test_exp/MPEFormer/
---method MPEFormer --msfa_size 4 --dataset Chikusei --pretrained_model_path ./model_pth/MPEFormer/Chikusei/MPEFormer_Chikusei.pth --test_dir ./dataset/Chikusei/test/ --outf ./test_exp/MPEFormer/
+# ARAD dataset testing
+--method FGLN --msfa_size 4 --dataset ARAD --pretrained_model_path ./model_zoo/FGLN/ARAD/net_1000epoch.pth --test_dir ./dataset/ARAD/test/ --outf ./test_exp/FGLN/ --cache ./training_cache/
+# CAVE dataset tesing
+--method FGLN --msfa_size 4 --dataset CAVE --pretrained_model_path ./model_zoo/FGLN/CAVE/net_1000epoch.pth --test_dir ./dataset/CAVE/test/ --outf ./test_exp/FGLN/ --cache ./training_cache/
 ```
+
 
 # Citation
 If you find this repo useful, please consider citing our works.
 ```
-@ARTICLE{MPEFormer,
-  author={Wu, Yaohang and Liu, Jinyang and Dian, Renwei and Li, Shutao and Yang, Yining},
-  journal={IEEE Transactions on Image Processing}, 
-  title={Mosaic Pattern Excavation Transformer for Spectral Imaging}, 
-  year={2025},
-  volume={},
-  number={},
-  pages={1-1},
-  keywords={Deep learning;spectral imaging;multispectral filter array;attention mechanism},
-  doi={10.1109/TIP.2025.3633159}}
+    Waiting for acceptance
 ```
