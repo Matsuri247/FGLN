@@ -71,5 +71,13 @@ Make sure you place the dataset as the following form:
 # Citation
 If you find this repo useful, please consider citing our works.
 ```
-    Waiting for acceptance
+@ARTICLE{11483128,
+  author={Wu, Yaohang and Dian, Renwei and Li, Shutao},
+  journal={IEEE Transactions on Circuits and Systems for Video Technology}, 
+  title={Frequency-Guided Lightweight Network for Unsupervised Spectral Demosaicing}, 
+  year={2026},
+  volume={},
+  number={},
+  pages={1-1},
+  doi={10.1109/TCSVT.2026.3684912}}
 ```
