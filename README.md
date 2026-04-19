@@ -78,6 +78,5 @@ If you find this repo useful, please consider citing our works.
   year={2026},
   volume={},
   number={},
-  pages={1-1},
   doi={10.1109/TCSVT.2026.3684912}}
 ```
